@@ -23,12 +23,12 @@ export function AccountabilityLoop() {
         </div>
 
         {/* Desktop Circle Layout */}
-        <div className="hidden md:flex justify-center items-center relative max-w-4xl mx-auto py-8 overflow-hidden" style={{ minHeight: '500px' }}>
+        <div className="hidden md:flex justify-center items-center relative max-w-5xl mx-auto py-12 overflow-hidden" style={{ minHeight: '600px' }}>
           {/* Central Hub */}
-          <div className="bg-primary text-primary-foreground w-36 h-36 rounded-full flex items-center justify-center font-semibold text-center z-20 relative shadow-lg">
+          <div className="bg-primary text-primary-foreground w-40 h-40 rounded-full flex items-center justify-center font-semibold text-center z-20 relative shadow-lg">
             <div>
-              <div className="text-lg font-bold">Human</div>
-              <div className="text-lg font-bold">Expert</div>
+              <div className="text-xl font-bold">Human</div>
+              <div className="text-xl font-bold">Expert</div>
             </div>
           </div>
 
@@ -47,29 +47,9 @@ export function AccountabilityLoop() {
                   top: `calc(50% + ${y}px)`,
                 }}
               >
-                <Card className="w-44 h-18 shadow-sm hover:shadow-md transition-all hover:scale-105">
-                  <CardContent className="p-3 flex flex-col items-center justify-center text-center">
-                    {/* Step number and arrow */}
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="w-5 h-5 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
-                        {step.step}
-                      </div>
-                      <svg 
-                        width="12" 
-                        height="12" 
-                        viewBox="0 0 12 12" 
-                        className="text-primary/60"
-                        style={{
-                          transform: `rotate(${step.angle + 180}deg)`
-                        }}
-                      >
-                        <path 
-                          d="M6 1L10 6L6 11L2 6L6 1Z" 
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-xs font-medium text-muted-foreground leading-tight">
+                <Card className="w-48 h-20 shadow-sm hover:shadow-md transition-all hover:scale-105">
+                  <CardContent className="p-4 flex items-center justify-center text-center h-full">
+                    <span className="text-sm font-medium text-muted-foreground leading-tight">
                       {step.text}
                     </span>
                   </CardContent>
@@ -116,9 +96,6 @@ export function AccountabilityLoop() {
           <div className="space-y-4">
             {workflowSteps.map((step, index) => (
               <div key={index} className="flex items-center gap-4">
-                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                  {step.step}
-                </div>
                 <Card className="flex-1 shadow-sm">
                   <CardContent className="p-4">
                     <span className="text-sm font-medium text-muted-foreground">
@@ -126,21 +103,6 @@ export function AccountabilityLoop() {
                     </span>
                   </CardContent>
                 </Card>
-                {index < workflowSteps.length - 1 && (
-                  <div className="text-center">
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 16 16" 
-                      className="text-primary/60 mx-auto"
-                    >
-                      <path 
-                        d="M8 2L12 8L8 14L4 8L8 2Z" 
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </div>
-                )}
               </div>
             ))}
           </div>
