@@ -23,14 +23,14 @@ export function MemorySystem() {
   return (
     <section className="py-16 bg-gradient-to-br from-muted to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Your Workflow's Memory
-          </h2>
-          <h3 className="text-2xl font-semibold text-muted-foreground mb-4">
-            Data as a First-Class Citizen
-          </h3>
-        </div>
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                    Your Workflow's Memory
+                  </h2>
+                  <h3 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
+                    Data as a First-Class Citizen
+                  </h3>
+                </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (

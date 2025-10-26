@@ -11,20 +11,20 @@ export function CallToAction() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-primary-foreground mb-4">
-            Be the First to Experience the Future of Automated Workflows
-          </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
-            Join our waitlist to get early access when we launch. Be among the first to transform your expertise into automated workflows.
-          </p>
-          <div className="flex gap-4 justify-center mb-6">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Join Waitlist
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-chart-1">
-              Learn More
-            </Button>
-          </div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
+                    Be the First to Experience the Future of Automated Workflows
+                  </h2>
+                  <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Join our waitlist to get early access when we launch. Be among the first to transform your expertise into automated workflows.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                    <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
+                      Join Waitlist
+                    </Button>
+                    <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-chart-1 w-full sm:w-auto">
+                      Learn More
+                    </Button>
+                  </div>
           <p className="text-sm text-primary-foreground/80">
             No spam • Early access • Cancel anytime
           </p>

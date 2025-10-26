@@ -15,7 +15,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background w-full">
       <Navigation />
       <HeroSection />
       <ProblemStatement />

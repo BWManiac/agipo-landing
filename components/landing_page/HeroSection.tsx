@@ -4,32 +4,32 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-muted to-background flex items-center py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <section className="min-h-screen bg-gradient-to-br from-muted to-background flex items-center py-8 md:py-16">
+              <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Text Content */}
           <div className="max-w-lg">
             <Badge className="bg-chart-1 text-primary-foreground mb-4">
               New: AI-Powered Workflows
             </Badge>
-            <h1 className="text-5xl font-bold text-foreground mb-4 leading-tight">
-              Turn Your Workflows Into Digital Assets
-            </h1>
-            <h2 className="text-2xl font-semibold text-muted-foreground mb-6">
-              Automate your expertise. Scale your impact.
-            </h2>
+                    <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+                      Turn Your Workflows Into Digital Assets
+                    </h1>
+                    <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
+                      Automate your expertise. Scale your impact.
+                    </h2>
             <p className="text-lg text-muted-foreground mb-8">
               Transform your unique processes into AI-generated workflows that run entirely in your browser. 
               Stop doing repetitive work. Start managing a portfolio of automated workflows that execute your-approved processes.
             </p>
-            <div className="flex gap-4 mb-8">
-              <Button size="lg">
-                Join Waitlist
-              </Button>
-              <Button size="lg" variant="outline">
-                Learn More
-              </Button>
-            </div>
+                    <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                      <Button size="lg" className="w-full sm:w-auto">
+                        Join Waitlist
+                      </Button>
+                      <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                        Learn More
+                      </Button>
+                    </div>
             <p className="text-sm text-muted-foreground">
               Coming Soon - Join the waitlist for early access
             </p>

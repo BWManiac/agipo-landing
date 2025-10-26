@@ -28,42 +28,71 @@ export function CompetitiveComparison() {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Why We Win
-          </h2>
-        </div>
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                    Why We Win
+                  </h2>
+                </div>
 
-        <Card className="max-w-4xl mx-auto shadow-sm">
-          <CardContent className="p-0">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="bg-muted font-semibold text-foreground">
-                    Competition (N8N, Zapier, Relay)
-                  </TableHead>
-                  <TableHead className="bg-muted font-semibold text-foreground">
-                    Agipo
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {comparisons.map((comparison, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="text-destructive font-medium">
-                      <span className="text-destructive font-bold mr-2">✗</span>
-                      {comparison.competition}
-                    </TableCell>
-                    <TableCell className="text-chart-2 font-medium">
-                      <span className="text-chart-2 font-bold mr-2">✓</span>
-                      {comparison.agipo}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
+                {/* Desktop Table */}
+                <Card className="hidden md:block max-w-4xl mx-auto shadow-sm">
+                  <CardContent className="p-0">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="bg-muted font-semibold text-foreground">
+                            Competition (N8N, Zapier, Relay)
+                          </TableHead>
+                          <TableHead className="bg-muted font-semibold text-foreground">
+                            Agipo
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {comparisons.map((comparison, index) => (
+                          <TableRow key={index}>
+                            <TableCell className="text-destructive font-medium">
+                              <span className="text-destructive font-bold mr-2">✗</span>
+                              {comparison.competition}
+                            </TableCell>
+                            <TableCell className="text-chart-2 font-medium">
+                              <span className="text-chart-2 font-bold mr-2">✓</span>
+                              {comparison.agipo}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+
+                {/* Mobile Cards */}
+                <div className="md:hidden max-w-md mx-auto space-y-4">
+                  {comparisons.map((comparison, index) => (
+                    <Card key={index} className="shadow-sm">
+                      <CardContent className="p-4">
+                        <div className="mb-3">
+                          <div className="text-destructive font-medium text-sm mb-1">
+                            <span className="text-destructive font-bold mr-2">✗</span>
+                            Competition
+                          </div>
+                          <p className="text-muted-foreground text-sm">
+                            {comparison.competition}
+                          </p>
+                        </div>
+                        <div>
+                          <div className="text-chart-2 font-medium text-sm mb-1">
+                            <span className="text-chart-2 font-bold mr-2">✓</span>
+                            Agipo
+                          </div>
+                          <p className="text-muted-foreground text-sm">
+                            {comparison.agipo}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
       </div>
     </section>
   )

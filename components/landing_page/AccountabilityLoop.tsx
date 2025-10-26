@@ -14,15 +14,16 @@ export function AccountabilityLoop() {
     <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Human-in-the-Loop Design
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Every workflow follows a continuous cycle where human expertise guides AI, ensuring accountability and continuous improvement.
           </p>
         </div>
 
-        <div className="flex justify-center items-center relative max-w-4xl mx-auto py-8 overflow-hidden" style={{ minHeight: '500px' }}>
+        {/* Desktop Circle Layout */}
+        <div className="hidden md:flex justify-center items-center relative max-w-4xl mx-auto py-8 overflow-hidden" style={{ minHeight: '500px' }}>
           {/* Central Hub */}
           <div className="bg-primary text-primary-foreground w-36 h-36 rounded-full flex items-center justify-center font-semibold text-center z-20 relative shadow-lg">
             <div>
@@ -33,7 +34,7 @@ export function AccountabilityLoop() {
 
           {/* Workflow Steps - Positioned in Circle */}
           {workflowSteps.map((step, index) => {
-            const radius = 200 // Further reduced to prevent overflow
+            const radius = 200
             const x = Math.cos((step.angle * Math.PI) / 180) * radius
             const y = Math.sin((step.angle * Math.PI) / 180) * radius
             
@@ -99,6 +100,50 @@ export function AccountabilityLoop() {
               )
             })}
           </svg>
+        </div>
+
+        {/* Mobile Vertical Layout */}
+        <div className="md:hidden max-w-md mx-auto py-8">
+          {/* Central Hub */}
+          <div className="bg-primary text-primary-foreground w-24 h-24 rounded-full flex items-center justify-center font-semibold text-center mx-auto mb-8 shadow-lg">
+            <div>
+              <div className="text-sm font-bold">Human</div>
+              <div className="text-sm font-bold">Expert</div>
+            </div>
+          </div>
+
+          {/* Workflow Steps - Vertical List */}
+          <div className="space-y-4">
+            {workflowSteps.map((step, index) => (
+              <div key={index} className="flex items-center gap-4">
+                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  {step.step}
+                </div>
+                <Card className="flex-1 shadow-sm">
+                  <CardContent className="p-4">
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {step.text}
+                    </span>
+                  </CardContent>
+                </Card>
+                {index < workflowSteps.length - 1 && (
+                  <div className="text-center">
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 16 16" 
+                      className="text-primary/60 mx-auto"
+                    >
+                      <path 
+                        d="M8 2L12 8L8 14L4 8L8 2Z" 
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Cycle Description */}
