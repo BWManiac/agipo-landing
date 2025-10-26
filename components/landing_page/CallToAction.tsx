@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { EmailCapture } from "@/components/ui/email-capture"
 
 export function CallToAction() {
   return (
@@ -17,13 +18,14 @@ export function CallToAction() {
                   <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
                     Join our waitlist to get early access when we launch. Be among the first to transform your expertise into automated workflows.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                    <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
-                      Join Waitlist
-                    </Button>
-                    <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-chart-1 w-full sm:w-auto">
-                      Learn More
-                    </Button>
+                  <div className="flex flex-col items-center gap-4 mb-6">
+                    <EmailCapture 
+                      placeholder="Enter your email for early access..."
+                      buttonText="Join Waitlist"
+                      source="call-to-action"
+                      context="Call to action section email capture"
+                      className="max-w-md"
+                    />
                   </div>
           <p className="text-sm text-primary-foreground/80">
             No spam • Early access • Cancel anytime

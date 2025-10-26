@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { EmailCapture } from "@/components/ui/email-capture"
 
 export function HeroSection() {
   return (
@@ -9,42 +10,24 @@ export function HeroSection() {
           {/* Left Column - Text Content */}
           <div className="max-w-lg">
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Turn Your Expertise into Passive Monthly Revenue
+              Turn Your Workflows Into Sellable Digital Assets
             </h1>
             <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
-              The smartest professionals are packaging their expertise into sellable AI workflows.
+              Automate your expertise. Scale your impact. Monetize your knowledge.
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Your knowledge, automated. Your impact, multiplied. Your income, recurring.
+              Transform your unique processes into AI-generated workflows that run entirely in your browser. Stop doing repetitive work. Start building a portfolio of automated workflows that execute your-approved processes for paying customers.
             </p>
             
-            {/* Benefits List */}
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">💰</span>
-                <span className="text-muted-foreground">Stop trading time for money</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🔄</span>
-                <span className="text-muted-foreground">Build recurring revenue from your knowledge</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">📈</span>
-                <span className="text-muted-foreground">Get paid for your expertise while you sleep</span>
-              </div>
+            <div className="mb-8">
+              <EmailCapture 
+                placeholder="Enter your email for early access..."
+                buttonText="Join Waitlist"
+                source="hero-section"
+                context="Hero section email capture"
+                className="mb-4"
+              />
             </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="w-full sm:w-auto">
-                Join Waitlist
-              </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                Learn More
-              </Button>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Coming Soon - Join the waitlist for early access
-            </p>
           </div>
 
           {/* Right Column - Demo */}
