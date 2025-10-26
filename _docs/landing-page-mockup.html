@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agipo - Turn Your Workflows Into Monetizable Assets</title>
+    <meta name="description" content="Transform your unique processes into AI-generated workflows that run entirely in your browser. Clone your expertise. Scale your impact.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: oklch(0.216 0.006 56.043);
+            --secondary-orange: oklch(0.646 0.222 41.116);
+            --success-green: oklch(0.6 0.118 184.704);
+            --warning-yellow: oklch(0.828 0.189 84.429);
+            --error-red: oklch(0.577 0.245 27.325);
+            --background: oklch(1 0 0);
+            --foreground: oklch(0.147 0.004 49.25);
+            --card: oklch(1 0 0);
+            --card-foreground: oklch(0.147 0.004 49.25);
+            --muted: oklch(0.97 0.001 106.424);
+            --muted-foreground: oklch(0.553 0.013 58.071);
+            --border: oklch(0.923 0.003 48.717);
+            --gray-50: oklch(0.985 0.001 106.423);
+            --gray-100: oklch(0.97 0.001 106.424);
+            --gray-200: oklch(0.923 0.003 48.717);
+            --gray-300: oklch(0.709 0.01 56.259);
+            --gray-400: oklch(0.553 0.013 58.071);
+            --gray-500: oklch(0.553 0.013 58.071);
+            --gray-600: oklch(0.553 0.013 58.071);
+            --gray-700: oklch(0.216 0.006 56.043);
+            --gray-800: oklch(0.147 0.004 49.25);
+            --gray-900: oklch(0.147 0.004 49.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-auth {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: oklch(0.15 0.01 56.043);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-orange);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: oklch(0.5 0.2 41.116);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--muted) 0%, var(--background) 100%);
+            display: flex;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 500px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--secondary-orange);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-ctas .btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .trust-indicator {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .hero-demo {
+            background: var(--card);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .demo-canvas {
+            background: var(--muted);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .workflow-nodes {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .node {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .demo-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-white {
+            background: var(--background);
+        }
+
+        .section-gray {
+            background: var(--muted);
+        }
+
+        .section-blue {
+            background: linear-gradient(135deg, var(--muted) 0%, oklch(0.95 0.01 200) 100%);
+        }
+
+        .section-orange {
+            background: linear-gradient(135deg, oklch(0.98 0.05 41.116) 0%, oklch(0.92 0.15 41.116) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Problem Cards */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .problem-card h3 {
+            color: var(--error-red);
+            margin-bottom: 1rem;
+        }
+
+        /* Solution Grid */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .solution-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .step-card h3 {
+            color: var(--success-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 3rem;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .comparison-table th {
+            background: var(--gray-50);
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .comparison-table td:first-child {
+            color: var(--error-red);
+        }
+
+        .comparison-table td:last-child {
+            color: var(--success-green);
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--gray-600);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            color: var(--gray-500);
+        }
+
+        /* New Layout Varieties */
+        .timeline-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 2rem;
+            width: 13px;
+            height: 13px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+        }
+
+        .timeline-icon {
+            font-size: 2rem;
+            color: var(--error-red);
+            min-width: 3rem;
+            text-align: center;
+        }
+
+        .timeline-content h3 {
+            color: var(--error-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .central-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .ipo-diagram {
+            background: var(--card);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            max-width: 600px;
+        }
+
+        .ipo-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .ipo-node {
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+            margin: 0 0.5rem;
+        }
+
+        .ipo-arrow {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .feature-orbit {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .orbit-card {
+            background: var(--muted);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .orbit-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .vertical-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .vertical-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+
+        .timeline-step {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .timeline-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--success-green);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .timeline-step-content {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex: 1;
+            max-width: 45%;
+        }
+
+        .split-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .comparison-side {
+            padding: 2rem;
+            border-radius: 0.75rem;
+        }
+
+        .comparison-side.old {
+            background: var(--muted);
+            border: 2px solid var(--error-red);
+        }
+
+        .comparison-side.new {
+            background: var(--muted);
+            border: 2px solid var(--success-green);
+        }
+
+        .comparison-side h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .comparison-side.old h3 {
+            color: var(--error-red);
+        }
+
+        .comparison-side.new h3 {
+            color: var(--success-green);
+        }
+
+        .circular-workflow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .workflow-center {
+            background: var(--primary-blue);
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .workflow-step {
+            position: absolute;
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            width: 150px;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .workflow-step:nth-child(2) { top: -20px; left: 50%; transform: translateX(-50%); }
+        .workflow-step:nth-child(3) { top: 20px; right: -20px; }
+        .workflow-step:nth-child(4) { bottom: 20px; right: -20px; }
+        .workflow-step:nth-child(5) { bottom: -20px; left: 50%; transform: translateX(-50%); }
+        .workflow-step:nth-child(6) { bottom: 20px; left: -20px; }
+        .workflow-step:nth-child(7) { top: 20px; left: -20px; }
+
+        .perspective-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .perspective-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary-orange);
+        }
+
+        .perspective-card h3 {
+            color: var(--secondary-orange);
+            margin-bottom: 1rem;
+        }
+
+        .enhanced-table {
+            background: var(--card);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .enhanced-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .enhanced-table th,
+        .enhanced-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .enhanced-table th {
+            background: var(--muted);
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .enhanced-table td:first-child {
+            color: var(--error-red);
+            font-weight: 500;
+        }
+
+        .enhanced-table td:last-child {
+            color: var(--success-green);
+            font-weight: 500;
+        }
+
+        .enhanced-table td:last-child::before {
+            content: '✓ ';
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .enhanced-table td:first-child::before {
+            content: '✗ ';
+            color: var(--error-red);
+            font-weight: bold;
+        }
+
+        .cta-enhanced {
+            background: linear-gradient(135deg, var(--secondary-orange) 0%, oklch(0.5 0.2 41.116) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .split-comparison,
+            .perspective-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-step {
+                flex-direction: column !important;
+            }
+
+            .timeline-step-content {
+                max-width: 100%;
+            }
+
+            .vertical-timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-step::before {
+                left: 2rem;
+            }
+
+            .workflow-step {
+                position: static;
+                margin: 1rem 0;
+                width: 100%;
+            }
+
+            .circular-workflow {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Agipo</div>
+                <div class="nav-auth">
+                    <a href="#" class="btn btn-primary">Get Early Access</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="badge">New: AI-Powered Workflows</div>
+                    <h1>Turn Your Workflows Into Digital Assets</h1>
+                    <h2>Automate your expertise. Scale your impact.</h2>
+                    <p>Transform your unique processes into AI-generated workflows that run entirely in your browser. Stop doing repetitive work. Start managing a portfolio of automated workflows that execute your-approved processes.</p>
+                    <div class="hero-ctas">
+                        <a href="#" class="btn btn-primary">Join Waitlist</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="trust-indicator">Coming Soon - Join the waitlist for early access</div>
+                </div>
+                <div class="hero-demo">
+                    <div class="demo-canvas">
+                        <div class="workflow-nodes">
+                            <div class="node">Input</div>
+                            <div class="node">Process</div>
+                            <div class="node">Output</div>
+                        </div>
+                        <input type="text" class="demo-input" placeholder="Turn customer feedback into roadmap items" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Expert Knowledge is Trapped & Unscalable</h2>
+                <p>The most valuable white-collar workers are bottlenecks. Their unique "way of thinking" and complex processes can't be easily replicated, scaled, or sold.</p>
+            </div>
+            <div class="timeline-layout">
+                <div class="timeline-item">
+                    <div class="timeline-icon">🔒</div>
+                    <div class="timeline-content">
+                        <h3>Expert Knowledge is Trapped</h3>
+                        <p>Most valuable white-collar workers are bottlenecks. Their unique "way of thinking" can't be replicated or scaled.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🔧</div>
+                    <div class="timeline-content">
+                        <h3>Tools Force You to Think Like Them</h3>
+                        <p>Existing automation platforms force conformity. Users must adapt thinking to tool constraints, limiting adoption.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">❓</div>
+                    <div class="timeline-content">
+                        <h3>Current AI is a "Black Box"</h3>
+                        <p>Generative AI creates content but isn't accountable. Businesses can't trust autonomous agents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Overview -->
+    <section class="section section-blue">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Platform for Workflow Digitalization</h2>
+                <p>Agipo is a platform for expert, white-collar workers to build, manage, and monetize automated workflows that capture their unique processes.</p>
+            </div>
+            <div class="central-diagram">
+                <div class="ipo-diagram">
+                    <div class="ipo-flow">
+                        <div class="ipo-node">Input</div>
+                        <div class="ipo-arrow">→</div>
+                        <div class="ipo-node">Process</div>
+                        <div class="ipo-arrow">→</div>
+                        <div class="ipo-node">Output</div>
+                    </div>
+                    <p style="text-align: center; color: var(--gray-600); font-style: italic;">Every workflow follows the IPO principle</p>
+                </div>
+                <div class="feature-orbit">
+                    <div class="orbit-card">
+                        <h3>Natural Language Interface</h3>
+                        <p>Describe workflows in plain English</p>
+                    </div>
+                    <div class="orbit-card">
+                        <h3>Code-First Nodes</h3>
+                        <p>AI-generated code with full ecosystem access</p>
+                    </div>
+                    <div class="orbit-card">
+                        <h3>Browser-Native Execution</h3>
+                        <p>Workflows run entirely in your browser with full ecosystem access</p>
+                    </div>
+                    <div class="orbit-card">
+                        <h3>Human Accountability</h3>
+                        <p>Every decision is inspectable and modifiable</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Build, Capture & Iterate</h2>
+            </div>
+            <div class="vertical-timeline">
+                <div class="timeline-step">
+                    <div class="timeline-step-content">
+                        <h3>Step 1: Capture Your Process</h3>
+                        <ul>
+                            <li>Screen Recording: Record your screen and talk through your task</li>
+                            <li>Context Ingestion: Connect tools (Slack, G-Drive, Email)</li>
+                            <li>AI Context Manager: AI asks the right questions to get sufficient context</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-step-content">
+                        <h3>Step 2: AI Generates Your Workflow</h3>
+                        <ul>
+                            <li>Code-First Nodes: AI-generated code, not pre-built blocks</li>
+                            <li>Zod Validation: Automatic input/output schema generation</li>
+                            <li>Full Ecosystem: Access to complete development ecosystem</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-step-content">
+                        <h3>Step 3: Refine & Deploy</h3>
+                        <ul>
+                            <li>Scannable Workflows: Immediately graspable by anyone</li>
+                            <li>Review & Critique: See mistakes? Critique directly in chat</li>
+                            <li>Continuous Improvement: AI learns from your feedback</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browser-Native Power</h2>
+            </div>
+            <div class="split-comparison">
+                <div class="comparison-side old">
+                    <h3>Traditional Approach</h3>
+                    <ul>
+                        <li>Server-based execution</li>
+                        <li>High infrastructure costs</li>
+                        <li>Data privacy concerns</li>
+                        <li>Limited ecosystem access</li>
+                        <li>Scaling bottlenecks</li>
+                    </ul>
+                </div>
+                <div class="comparison-side new">
+                    <h3>Agipo's Approach</h3>
+                    <ul>
+                        <li>Browser-native execution</li>
+                        <li>No infrastructure costs</li>
+                        <li>Complete privacy</li>
+                        <li>Full ecosystem access</li>
+                        <li>Scales with users</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory System -->
+    <section class="section section-blue">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Workflow's Memory</h2>
+                <h3>Data as a First-Class Citizen</h3>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>Shared Context</h3>
+                    <p>Multiple workflows read from/write to single source</p>
+                </div>
+                <div class="solution-card">
+                    <h3>Style Reference</h3>
+                    <p>Upload past work for consistent tone and style</p>
+                </div>
+                <div class="solution-card">
+                    <h3>Foundation for Apps</h3>
+                    <p>Backend/process-first architecture</p>
+                </div>
+                <div class="solution-card">
+                    <h3>Vector Storage</h3>
+                    <p>RAG (Retrieval-Augmented Generation) capabilities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accountability Loop -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Human-in-the-Loop Design</h2>
+            </div>
+            <div class="circular-workflow">
+                <div class="workflow-center">Human<br>Expert</div>
+                <div class="workflow-step">AI Generates Workflow</div>
+                <div class="workflow-step">Human Reviews & Validates</div>
+                <div class="workflow-step">AI Learns & Improves</div>
+                <div class="workflow-step">Workflow Executes</div>
+                <div class="workflow-step">10x Productivity</div>
+                <div class="workflow-step">Continuous Feedback</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision - Agent Marketplace -->
+    <section class="section section-orange">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Workflow Marketplace</h2>
+                <h3>Foundation for a new economy of automated expertise</h3>
+            </div>
+            <div class="perspective-layout">
+                <div class="perspective-card">
+                    <h3>For Creators</h3>
+                    <p>Stop selling courses on "how to do your job." Sell the actual automated workflow that does the job. Build once, sell 1,000 times.</p>
+                    <ul>
+                        <li>Monetize your expertise directly</li>
+                        <li>Scale without scaling your time</li>
+                        <li>Build recurring revenue streams</li>
+                    </ul>
+                </div>
+                <div class="perspective-card">
+                    <h3>For Companies</h3>
+                    <p>Stop hiring full-time people for single, repetitive processes. "Hire" pre-built, expert-trained automated workflows.</p>
+                    <ul>
+                        <li>Access expert processes instantly</li>
+                        <li>Reduce hiring and training costs</li>
+                        <li>Scale operations efficiently</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Comparison -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why We Win</h2>
+            </div>
+            <div class="enhanced-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competition (N8N, Zapier, Relay)</th>
+                            <th>Agipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rigid Nodes (Tool-centric)</td>
+                            <td>Code-First Nodes (User-centric)</td>
+                        </tr>
+                        <tr>
+                            <td>"Black Box" Process</td>
+                            <td>100% "Scannable" & Inspectable</td>
+                        </tr>
+                        <tr>
+                            <td>Full Autonomy (Risky)</td>
+                            <td>Human-in-Loop (Accountable)</td>
+                        </tr>
+                        <tr>
+                            <td>Stateless & Siloed</td>
+                            <td>"Memory" (Shared Data & Context)</td>
+                        </tr>
+                        <tr>
+                            <td>Forces you to think like a tool</td>
+                            <td>Conforms to how *you* think</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Call-to-Action -->
+    <section class="section cta-enhanced">
+        <div class="container">
+            <div class="section-header cta-content">
+                <h2>Be the First to Experience the Future of Automated Workflows</h2>
+                <p>Join our waitlist to get early access when we launch. Be among the first to transform your expertise into automated workflows.</p>
+                <div class="hero-ctas">
+                    <a href="#" class="btn btn-primary">Join Waitlist</a>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: white; opacity: 0.9;">No spam • Early access • Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#vision">Vision</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#updates">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#terms">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Agipo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
