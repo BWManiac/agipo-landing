@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function HeroSection() {
@@ -9,27 +8,40 @@ export function HeroSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Text Content */}
           <div className="max-w-lg">
-            <Badge className="bg-chart-1 text-primary-foreground mb-4">
-              New: AI-Powered Workflows
-            </Badge>
-                    <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-                      Turn Your Workflows Into Digital Assets
-                    </h1>
-                    <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
-                      Automate your expertise. Scale your impact.
-                    </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Transform your unique processes into AI-generated workflows that run entirely in your browser. 
-              Stop doing repetitive work. Start managing a portfolio of automated workflows that execute your-approved processes.
+            <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+              Turn Your Expertise into Passive Monthly Revenue
+            </h1>
+            <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
+              The smartest professionals are packaging their expertise into sellable AI workflows.
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Your knowledge, automated. Your impact, multiplied. Your income, recurring.
             </p>
-                    <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                      <Button size="lg" className="w-full sm:w-auto">
-                        Join Waitlist
-                      </Button>
-                      <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                        Learn More
-                      </Button>
-                    </div>
+            
+            {/* Benefits List */}
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">💰</span>
+                <span className="text-muted-foreground">Stop trading time for money</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🔄</span>
+                <span className="text-muted-foreground">Build recurring revenue from your knowledge</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📈</span>
+                <span className="text-muted-foreground">Get paid for your expertise while you sleep</span>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button size="lg" className="w-full sm:w-auto">
+                Join Waitlist
+              </Button>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                Learn More
+              </Button>
+            </div>
             <p className="text-sm text-muted-foreground">
               Coming Soon - Join the waitlist for early access
             </p>
