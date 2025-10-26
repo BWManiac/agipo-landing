@@ -9,8 +9,7 @@ import {
   AccountabilityLoop,
   VisionMarketplace,
   CompetitiveComparison,
-  CallToAction,
-  Footer
+  CallToAction
 } from "@/components/landing_page"
 
 export default function Home() {
@@ -27,7 +26,6 @@ export default function Home() {
       <VisionMarketplace />
       <CompetitiveComparison />
       <CallToAction />
-      <Footer />
     </div>
   );
 }
