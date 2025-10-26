@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { EmailCapture } from "@/components/ui/email-capture"
 
 export function Navigation() {
   return (
@@ -8,9 +9,21 @@ export function Navigation() {
           <div className="text-2xl font-bold text-primary">
             Agipo
           </div>
-          <Button>
-            Get Early Access
-          </Button>
+          <div className="hidden sm:block">
+            <EmailCapture 
+              placeholder="Enter email..."
+              buttonText="Get Early Access"
+              source="navigation"
+              context="Navigation header email capture"
+              variant="inline"
+              className="max-w-md"
+            />
+          </div>
+          <div className="sm:hidden">
+            <Button size="sm">
+              Get Early Access
+            </Button>
+          </div>
         </div>
       </div>
     </nav>
