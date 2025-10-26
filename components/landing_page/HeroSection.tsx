@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { EmailCapture } from "@/components/ui/email-capture"
-import { ArrowRight, MessageSquare, Zap, FileText } from "lucide-react"
+import { ArrowRight, MessageSquare, Zap, FileText, User, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -11,14 +11,46 @@ export function HeroSection() {
           {/* Left Column - Text Content */}
           <div className="max-w-lg">
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Turn Your Workflows Into Sellable Digital Assets
+              Turn Your Workflows Into Income-Generating Assets
             </h1>
-            <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
-              Automate your expertise. Scale your impact. Monetize your knowledge.
+            <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-8">
+              Automate what you do best. Monetize how you do it.
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Transform your unique processes into AI-generated workflows that run entirely in your browser. Stop doing repetitive work. Start building a portfolio of automated workflows that execute your-approved processes for paying customers.
-            </p>
+            
+            {/* Parallel Value Propositions */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* For Professionals */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                    <User className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-800">For Professionals</h3>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  Run your workflows directly in your browser and own them as digital assets.
+                </p>
+                <p className="text-xs text-gray-600">
+                  Every process you build becomes part of your portfolio — build once, earn indefinitely.
+                </p>
+              </div>
+
+              {/* For Teams & Enterprises */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                    <Users className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-800">For Teams & Enterprises</h3>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  Agipo captures how work gets done across your organization and turns it into shared, reusable automations.
+                </p>
+                <p className="text-xs text-gray-600">
+                  Teams can document, deploy, and monetize best practices internally or externally — transforming institutional knowledge into a scalable, profitable asset library.
+                </p>
+              </div>
+            </div>
             
             <div className="mb-8">
               <EmailCapture 
